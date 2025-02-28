@@ -1,1 +1,473 @@
 
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جدول دوام الموظفين لشهر رمضان</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab {
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            margin-left: 5px;
+            border-radius: 5px 5px 0 0;
+            transition: all 0.3s;
+        }
+        .tab:hover {
+            background-color: #e9ecef;
+        }
+        .tab.active {
+            background-color: #e74c3c;
+            color: white;
+            border-bottom: none;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e9e9e9;
+        }
+        .info-section {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .shift-times {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .shift-box {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 5px;
+            text-align: center;
+            width: 200px;
+        }
+        .employee-list {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .employee-shift {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 5px;
+            text-align: center;
+            width: 200px;
+        }
+        .holidays {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .special-note {
+            background-color: #f39c12;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            .tab {
+                margin-bottom: 5px;
+                border-radius: 5px;
+            }
+            .shift-times, .employee-list {
+                flex-direction: column;
+            }
+            .shift-box, .employee-shift {
+                width: auto;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>جدول دوام الموظفين لشهر رمضان</h1>
+        
+        <div class="info-section">
+            <h2>معلومات أساسية</h2>
+            
+            <h3>أوقات الشفتات</h3>
+            <div class="shift-times">
+                <div class="shift-box">الشفت الأول: 6:00 صباحاً - 12:00 ظهراً</div>
+                <div class="shift-box">الشفت الثاني: 12:00 ظهراً - 6:00 مساءً</div>
+                <div class="shift-box">الشفت الثالث: 6:00 مساءً - 12:00 ليلاً</div>
+                <div class="shift-box">الشفت الرابع: 12:00 ليلاً - 6:00 صباحاً</div>
+            </div>
+            
+            <h3>توزيع الموظفين الأساسي</h3>
+            <div class="employee-list">
+                <div class="employee-shift">الشفت الأول: عابد، رمزي</div>
+                <div class="employee-shift">الشفت الثاني: فهد</div>
+                <div class="employee-shift">الشفت الثالث: محمد، عبدالرحمن</div>
+                <div class="employee-shift">الشفت الرابع: ماجد، عبدالرحمن</div>
+            </div>
+            
+            <h3>أيام الإجازات</h3>
+            <div class="holidays">
+                <p><strong>الجمعة:</strong> عابد، رمزي، فهد، محمد مرشود، ماجد العبدي</p>
+                <p><strong>الخميس:</strong> عبدالرحمن الصاعدي، عبدالرحمن المعبدي</p>
+            </div>
+            
+            <div class="special-note">
+                <p><strong>ملاحظة خاصة:</strong> قيوم يعمل يوم الجمعة من 6:00 صباحاً إلى 6:00 مساءً</p>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="openTab(event, 'week1')">الأسبوع الأول</div>
+            <div class="tab" onclick="openTab(event, 'week2')">الأسبوع الثاني</div>
+            <div class="tab" onclick="openTab(event, 'week3')">الأسبوع الثالث</div>
+            <div class="tab" onclick="openTab(event, 'week4')">الأسبوع الرابع</div>
+        </div>
+        
+        <div id="week1" class="tab-content active">
+            <h2>جدول الأسبوع الأول</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>اليوم</th>
+                        <th>الشفت الأول (6ص-12ظ)</th>
+                        <th>الشفت الثاني (12ظ-6م)</th>
+                        <th>الشفت الثالث (6م-12ل)</th>
+                        <th>الشفت الرابع (12ل-6ص)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>السبت</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                    </tr>
+                    <tr>
+                        <td>الأحد</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                    </tr>
+                    <tr>
+                        <td>الاثنين</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                    </tr>
+                    <tr>
+                        <td>الثلاثاء</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                    </tr>
+                    <tr>
+                        <td>الأربعاء</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                    </tr>
+                    <tr>
+                        <td>الخميس</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                        <td>محمد</td>
+                        <td>ماجد</td>
+                    </tr>
+                    <tr>
+                        <td>الجمعة</td>
+                        <td>قيوم</td>
+                        <td>قيوم</td>
+                        <td>عبدالرحمن</td>
+                        <td>عبدالرحمن</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="week2" class="tab-content">
+            <h2>جدول الأسبوع الثاني</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>اليوم</th>
+                        <th>الشفت الأول (6ص-12ظ)</th>
+                        <th>الشفت الثاني (12ظ-6م)</th>
+                        <th>الشفت الثالث (6م-12ل)</th>
+                        <th>الشفت الرابع (12ل-6ص)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>السبت</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                    </tr>
+                    <tr>
+                        <td>الأحد</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                    </tr>
+                    <tr>
+                        <td>الاثنين</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                    </tr>
+                    <tr>
+                        <td>الثلاثاء</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                    </tr>
+                    <tr>
+                        <td>الأربعاء</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                    </tr>
+                    <tr>
+                        <td>الخميس</td>
+                        <td>ماجد</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                        <td>محمد</td>
+                    </tr>
+                    <tr>
+                        <td>الجمعة</td>
+                        <td>قيوم</td>
+                        <td>قيوم</td>
+                        <td>عبدالرحمن</td>
+                        <td>عبدالرحمن</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="week3" class="tab-content">
+            <h2>جدول الأسبوع الثالث</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>اليوم</th>
+                        <th>الشفت الأول (6ص-12ظ)</th>
+                        <th>الشفت الثاني (12ظ-6م)</th>
+                        <th>الشفت الثالث (6م-12ل)</th>
+                        <th>الشفت الرابع (12ل-6ص)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>السبت</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                    </tr>
+                    <tr>
+                        <td>الأحد</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                    </tr>
+                    <tr>
+                        <td>الاثنين</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                    </tr>
+                    <tr>
+                        <td>الثلاثاء</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                    </tr>
+                    <tr>
+                        <td>الأربعاء</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                    </tr>
+                    <tr>
+                        <td>الخميس</td>
+                        <td>محمد</td>
+                        <td>ماجد</td>
+                        <td>عابد، رمزي</td>
+                        <td>فهد</td>
+                    </tr>
+                    <tr>
+                        <td>الجمعة</td>
+                        <td>قيوم</td>
+                        <td>قيوم</td>
+                        <td>عبدالرحمن</td>
+                        <td>عبدالرحمن</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="week4" class="tab-content">
+            <h2>جدول الأسبوع الرابع</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>اليوم</th>
+                        <th>الشفت الأول (6ص-12ظ)</th>
+                        <th>الشفت الثاني (12ظ-6م)</th>
+                        <th>الشفت الثالث (6م-12ل)</th>
+                        <th>الشفت الرابع (12ل-6ص)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>السبت</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                    </tr>
+                    <tr>
+                        <td>الأحد</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                    </tr>
+                    <tr>
+                        <td>الاثنين</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                    </tr>
+                    <tr>
+                        <td>الثلاثاء</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                    </tr>
+                    <tr>
+                        <td>الأربعاء</td>
+                        <td>فهد</td>
+                        <td>محمد، عبدالرحمن</td>
+                        <td>ماجد، عبدالرحمن</td>
+                        <td>عابد، رمزي</td>
+                    </tr>
+                    <tr>
+                        <td>الخميس</td>
+                        <td>فهد</td>
+                        <td>محمد</td>
+                        <td>ماجد</td>
+                        <td>عابد، رمزي</td>
+                    </tr>
+                    <tr>
+                        <td>الجمعة</td>
+                        <td>قيوم</td>
+                        <td>قيوم</td>
+                        <td>عبدالرحمن</td>
+                        <td>عبدالرحمن</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, weekName) {
+            // Hide all tab content
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+            
+            // Remove "active" class from all tabs
+            const tabs = document.getElementsByClassName("tab");
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+            
+            // Show the current tab and add "active" class
+            document.getElementById(weekName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
